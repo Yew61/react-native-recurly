@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="387b3a5e-0880-403f-9670-eb9b801e0ef9" name="Changes" comment="all code commited">
+      <change afterPath="$PROJECT_DIR$/components/ListHeading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/SubscriptionCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constants/images.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/type.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/type.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +25,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="112" />
+    <option name="cachedIndexableFilesCount" value="117" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -37,61 +49,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000049642252524" />
-      <entry key="MS500" value="1.0907480073599611" />
-      <entry key="S2" value="2.427561973401513" />
-      <entry key="S5" value="5.5840151362485" />
-      <entry key="S10" value="11.007788066177287" />
-      <entry key="S30" value="35.15174040492258" />
-      <entry key="S60" value="56.72346245306828" />
-      <entry key="M2" value="77.40477979075693" />
-      <entry key="M5" value="101.76899628844278" />
-      <entry key="M10" value="119.12167643177249" />
-      <entry key="M15" value="128.28176751112235" />
-      <entry key="M30" value="140.64792433488807" />
-      <entry key="H1" value="148.55222132069088" />
-      <entry key="H2" value="153.0603420486707" />
-      <entry key="H4" value="155.47305274755777" />
-      <entry key="D1" value="157.57062290178612" />
-      <entry key="W1" value="157.9384552791511" />
+      <entry key="MS100" value="1.0000000000001168" />
+      <entry key="MS500" value="1.002631818463253" />
+      <entry key="S2" value="1.3053128339235172" />
+      <entry key="S5" value="1.9148016793004878" />
+      <entry key="S10" value="2.34541332330248" />
+      <entry key="S30" value="2.7524148652588742" />
+      <entry key="S60" value="2.938261270368706" />
+      <entry key="M2" value="3.449787901765352" />
+      <entry key="M5" value="5.9649508240290965" />
+      <entry key="M10" value="14.900675708927892" />
+      <entry key="M15" value="28.037035953939718" />
+      <entry key="M30" value="74.25834568368576" />
+      <entry key="H1" value="170.9246592063008" />
+      <entry key="H2" value="323.3884000894231" />
+      <entry key="H4" value="480.6798808725192" />
+      <entry key="D1" value="696.9531151341145" />
+      <entry key="W1" value="745.5083348784173" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="7.61293090892546E-248" />
-      <entry key="S2" value="2.115627132062987E-62" />
-      <entry key="S5" value="3.123390302678815E-25" />
-      <entry key="S10" value="8.545047400666273E-13" />
-      <entry key="S30" value="2.2754253239785514E-4" />
-      <entry key="S60" value="0.032586888597920805" />
-      <entry key="M2" value="0.41112644630268036" />
-      <entry key="M5" value="2.329599458570511" />
-      <entry key="M10" value="4.991915202853181" />
-      <entry key="M15" value="6.702953918799616" />
-      <entry key="M30" value="9.218773136095995" />
-      <entry key="H1" value="10.912868994063269" />
-      <entry key="H2" value="11.901425500901059" />
-      <entry key="H4" value="12.436144104270943" />
-      <entry key="D1" value="12.903927129513397" />
-      <entry key="W1" value="12.986222964400044" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="4.1825126516411625E-273" />
+      <entry key="S5" value="1.1183937618558883E-109" />
+      <entry key="S10" value="3.37739840344648E-55" />
+      <entry key="S30" value="1.0777456424771472E-18" />
+      <entry key="S60" value="2.3820249634044808E-9" />
+      <entry key="M2" value="1.4449226256847008E-4" />
+      <entry key="M5" value="0.13637486966243395" />
+      <entry key="M10" value="1.5809351821892041" />
+      <entry key="M15" value="3.8881475392762264" />
+      <entry key="M30" value="10.989903886312446" />
+      <entry key="H1" value="22.421363742301306" />
+      <entry key="H2" value="37.60367430261518" />
+      <entry key="H4" value="52.27247232902107" />
+      <entry key="D1" value="71.88214147601602" />
+      <entry key="W1" value="76.23918465387105" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.023519480433541566" />
-      <entry key="MS500" value="0.4813722919813479" />
-      <entry key="S2" value="1.9725686975940067" />
-      <entry key="S5" value="5.306312084723289" />
-      <entry key="S10" value="10.843614264010569" />
-      <entry key="S30" value="35.08760581519727" />
-      <entry key="S60" value="56.720538026304474" />
-      <entry key="M2" value="77.79264141706479" />
-      <entry key="M5" value="104.07138190982488" />
-      <entry key="M10" value="124.08221390851378" />
-      <entry key="M15" value="134.9553569090446" />
-      <entry key="M30" value="149.84553174299288" />
-      <entry key="H1" value="159.4522682346406" />
-      <entry key="H2" value="164.95469593211183" />
-      <entry key="H4" value="167.90548147213897" />
-      <entry key="D1" value="170.47390454075017" />
-      <entry key="W1" value="170.9245853696001" />
+      <entry key="MS100" value="7.3991169959756305E-9" />
+      <entry key="MS500" value="0.02470931640223943" />
+      <entry key="S2" value="0.6109463000529681" />
+      <entry key="S5" value="1.4633635420325146" />
+      <entry key="S10" value="2.0604371230182323" />
+      <entry key="S30" value="2.6384477782528046" />
+      <entry key="S60" value="2.877830153210824" />
+      <entry key="M2" value="3.4167252579715024" />
+      <entry key="M5" value="6.082476659865353" />
+      <entry key="M10" value="16.458832129523998" />
+      <entry key="M15" value="31.89524882346576" />
+      <entry key="M30" value="85.20677057254582" />
+      <entry key="H1" value="193.301322312827" />
+      <entry key="H2" value="360.9540202628292" />
+      <entry key="H4" value="532.9260702151381" />
+      <entry key="D1" value="768.8293223817118" />
+      <entry key="W1" value="821.7466235351205" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -113,7 +125,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "#1 on dev",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
     "junie.plugin.stays.banner.dismissed": "true",
@@ -165,7 +177,12 @@
       <workItem from="1789611572579" duration="927000" />
       <workItem from="1789694393059" duration="2767000" />
       <workItem from="1789699935651" duration="3827000" />
-      <workItem from="1789855455051" duration="1042000" />
+      <workItem from="1789855455051" duration="2802000" />
+      <workItem from="1789866097423" duration="3523000" />
+      <workItem from="1789871012748" duration="397000" />
+      <workItem from="1789873316282" duration="4751000" />
+      <workItem from="1789885204756" duration="2282000" />
+      <workItem from="1789956896258" duration="4604000" />
     </task>
     <task id="LOCAL-00001" summary="all code commited">
       <option name="closed" value="true" />
