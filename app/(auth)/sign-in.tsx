@@ -1,13 +1,90 @@
-import {View, Text} from 'react-native'
-import {Link} from "expo-router";
+import { useState } from 'react';
+import { View, Text, TextInput, Pressable, ActivityIndicator } from 'react-native';
+import { Link, useRouter } from 'expo-router';
+import { useSignIn } from '@clerk/expo';
+import { ClerkError } from '@clerk/types';
 
 const SignIn = () => {
-    return (
-        <View>
-            <Text>SignIn</Text>
-            <Link href="/(auth)/sign-up">Create Account</Link>
-        </View>
-    )
-}
+    const { signIn, errors, fetchStatus } = useSignIn();
+    const router = useRouter();
+    const [emailAddress, setEmailAddress] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-export default SignIn
+    const onSignInPress = async () => {
+        if (!signIn) return;
+        setError('');
+
+        const { error } = await signIn.password({
+            emailAddress,
+            password,
+        });
+
+        if (error) {
+            setError(error.message || 'An error occurred');
+        } else if (signIn.status === 'complete') {
+            await signIn.finalize({
+                navigate: () => router.replace('/(tabs)'),
+            });
+        }
+    };
+
+    return (
+        <View className="auth-screen">
+            <View className="auth-content">
+                <View className="auth-brand-block">
+                    <View className="auth-logo-wrap">
+                        <View className="auth-logo-mark"><Text className="auth-logo-mark-text">R</Text></View>
+                        <View>
+                            <Text className="auth-wordmark">Recurly</Text>
+                            <Text className="auth-wordmark-sub">SMART BILLING</Text>
+                        </View>
+                    </View>
+                    <Text className="auth-title">Welcome back</Text>
+                    <Text className="auth-subtitle">Sign in to continue managing your subscriptions</Text>
+                </View>
+
+                <View className="auth-card">
+                    <View className="auth-form">
+                        <View className="auth-field">
+                            <Text className="auth-label">Email</Text>
+                            <TextInput
+                                className={`auth-input ${error || errors?.fields?.identifier ? 'auth-input-error' : ''}`}
+                                autoCapitalize="none"
+                                value={emailAddress}
+                                placeholder="Enter your email"
+                                onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
+                            />
+                            {errors?.fields?.identifier && <Text className="auth-error">{errors.fields.identifier[0].message}</Text>}
+                        </View>
+
+                        <View className="auth-field">
+                            <Text className="auth-label">Password</Text>
+                            <TextInput
+                                className={`auth-input ${error || errors?.fields?.password ? 'auth-input-error' : ''}`}
+                                value={password}
+                                placeholder="Enter your password"
+                                secureTextEntry={true}
+                                onChangeText={(password) => setPassword(password)}
+                            />
+                            {errors?.fields?.password && <Text className="auth-error">{errors.fields.password[0].message}</Text>}
+                        </View>
+
+                        {error ? <Text className="auth-error">{error}</Text> : null}
+
+                        <Pressable className="auth-button" onPress={onSignInPress} disabled={fetchStatus === 'fetching'}>
+                            {fetchStatus === 'fetching' ? <ActivityIndicator color="white" /> : <Text className="auth-button-text">Sign in</Text>}
+                        </Pressable>
+                    </View>
+                </View>
+
+                <View className="auth-link-row">
+                    <Text className="auth-link-copy">New to Recurly?</Text>
+                    <Link href="/(auth)/sign-up" className="auth-link">Create an account</Link>
+                </View>
+            </View>
+        </View>
+    );
+};
+
+export default SignIn;
