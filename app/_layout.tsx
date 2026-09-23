@@ -4,7 +4,9 @@ import '@/global.css'
 import {useFonts} from "expo-font";
 import {useEffect} from "react";
 import { ClerkProvider, useAuth } from '@clerk/expo';
+import { PostHogProvider } from 'posthog-react-native'
 import { tokenCache } from '@/lib/tokenCache';
+import { posthog } from '@/lib/posthog'
 
 SplashScreen.preventAutoHideAsync();
 
@@ -47,12 +49,14 @@ export default function RootLayout() {
   }
 
 
-  return (
+  const app = (
     <ClerkProvider
         publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}
         tokenCache={tokenCache}
     >
         <InitialLayout />
     </ClerkProvider>
-  );
+  )
+
+  return posthog ? <PostHogProvider client={posthog}>{app}</PostHogProvider> : app;
 }

@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { View, Text, TextInput, Pressable, ActivityIndicator } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import { useSignUp } from '@clerk/expo';
+import { posthog } from '@/lib/posthog';
+import { posthogAppLogger } from '@/lib/posthogLogs';
 
 const SignUp = () => {
     const { signUp, errors, fetchStatus } = useSignUp();
@@ -40,6 +42,7 @@ const SignUp = () => {
                 setError(emailError.message || 'An error occurred');
             } else {
                 setHasSentCode(true);
+                posthog?.capture('sign_up_verification_requested');
             }
         }
     };
@@ -56,8 +59,19 @@ const SignUp = () => {
             setError(error.message || 'An error occurred');
         } else if (signUp.status === 'complete') {
             await signUp.finalize({
-                navigate: () => router.replace('/(tabs)'),
+                navigate: ({ session }) => {
+                    if (session.user) {
+                        const email = session.user.primaryEmailAddress?.emailAddress;
+                        posthog?.identify(
+                            session.user.id,
+                            email ? { $set: { email } } : undefined,
+                        );
+                    }
+                    router.replace('/(tabs)');
+                },
             });
+            posthog?.capture('account_created');
+            posthogAppLogger.info('account_created');
         }
     };
 

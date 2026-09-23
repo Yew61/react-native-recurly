@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { View, Text, TextInput, Pressable, ActivityIndicator } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import { useSignIn } from '@clerk/expo';
-import { ClerkError } from '@clerk/types';
+import { posthog } from '@/lib/posthog';
+import { posthogAppLogger } from '@/lib/posthogLogs';
 
 const SignIn = () => {
     const { signIn, errors, fetchStatus } = useSignIn();
@@ -28,7 +29,22 @@ const SignIn = () => {
             setShowSecondFactor(true);
         } else if (signIn.status === 'complete') {
             await signIn.finalize({
-                navigate: () => router.replace('/(tabs)'),
+                navigate: ({ session }) => {
+                    if (session.user) {
+                        const email = session.user.primaryEmailAddress?.emailAddress;
+                        posthog?.identify(
+                            session.user.id,
+                            email ? { $set: { email } } : undefined,
+                        );
+                    }
+                    router.replace('/(tabs)');
+                },
+            });
+            posthog?.capture('sign_in_completed', {
+                authentication_method: 'password',
+            });
+            posthogAppLogger.info('sign_in_completed', {
+                authentication_method: 'password',
             });
         }
     };
@@ -44,7 +60,22 @@ const SignIn = () => {
 
             if (result.status === 'complete') {
                 await signIn.finalize({
-                    navigate: () => router.replace('/(tabs)'),
+                    navigate: ({ session }) => {
+                        if (session.user) {
+                            const email = session.user.primaryEmailAddress?.emailAddress;
+                            posthog?.identify(
+                                session.user.id,
+                                email ? { $set: { email } } : undefined,
+                            );
+                        }
+                        router.replace('/(tabs)');
+                    },
+                });
+                posthog?.capture('sign_in_completed', {
+                    authentication_method: 'second_factor',
+                });
+                posthogAppLogger.info('sign_in_completed', {
+                    authentication_method: 'second_factor',
                 });
             } else {
                 setError('Second factor verification failed');

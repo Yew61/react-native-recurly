@@ -13,6 +13,8 @@ import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import {useState} from "react";
 import {useUser} from "@clerk/expo";
+import {posthog} from "@/lib/posthog";
+import {posthogAppLogger} from "@/lib/posthogLogs";
 const SafeAreaView = styled(RNSafeAreaView);
 
 export default function App() {
@@ -21,6 +23,17 @@ export default function App() {
 
     // Get user display name: firstName, fullName, or email
     const displayName = user?.firstName || user?.fullName || user?.emailAddresses[0]?.emailAddress || 'User';
+
+    const onSubscriptionPress = (subscriptionId: string) => {
+        const isExpanded = expandedSubscriptionId === subscriptionId;
+        posthog?.capture('subscription_details_toggled', {
+            is_expanded: !isExpanded,
+        });
+        posthogAppLogger.info('subscription_details_toggled', {
+            is_expanded: !isExpanded,
+        });
+        setExpandedSubscriptionId(isExpanded ? null : subscriptionId);
+    };
 
     return (
         <SafeAreaView className="flex-1 bg-background p-5">
@@ -75,7 +88,7 @@ export default function App() {
                         <SubscriptionCard
                             {...item}
                             expanded={expandedSubscriptionId === item.id}
-                            onPress={() => setExpandedSubscriptionId((currentId) => (currentId === item.id ? null : item.id))}
+                            onPress={() => onSubscriptionPress(item.id)}
                         />
                     )}
                     extraData={expandedSubscriptionId}
