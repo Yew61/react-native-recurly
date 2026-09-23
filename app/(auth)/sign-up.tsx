@@ -35,8 +35,12 @@ const SignUp = () => {
         if (error) {
             setError(error.message || 'An error occurred');
         } else {
-            await signUp.verifications.sendEmailCode();
-            setHasSentCode(true);
+            const { error: emailError } = await signUp.verifications.sendEmailCode();
+            if (emailError) {
+                setError(emailError.message || 'An error occurred');
+            } else {
+                setHasSentCode(true);
+            }
         }
     };
 
