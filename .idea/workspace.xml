@@ -4,67 +4,99 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="387b3a5e-0880-403f-9670-eb9b801e0ef9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(auth)/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/sign-in.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/sign-up.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/insights.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/settings.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/subscriptions.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/subscriptions/[id].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/onboarding.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nativewind-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postcss.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.claude/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AGENTS.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/explore.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modal.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/android-icon-background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/android-icon-foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/android-icon-monochrome.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/partial-react-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/splash-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/external-link.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/haptic-tab.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hello-wave.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/parallax-scroll-view.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/themed-text.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/themed-view.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/collapsible.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/icon-symbol.ios.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/icon-symbol.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/theme.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-color-scheme.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-color-scheme.web.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/use-theme-color.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/reset-project.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+    <list default="true" id="387b3a5e-0880-403f-9670-eb9b801e0ef9" name="Changes" comment="all code commited">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/subscriptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/subscriptions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/posthog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/posthog.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="138" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Yew61&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Yew61/react-native-recurly.git&quot;,
+    &quot;accountId&quot;: &quot;60574a5b-1126-4c3c-af67-df1053206419&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.5430349116134128" />
+      <entry key="MS500" value="3.8108002884007064" />
+      <entry key="S2" value="8.512407970942135" />
+      <entry key="S5" value="15.499199715074848" />
+      <entry key="S10" value="22.06711289334163" />
+      <entry key="S30" value="32.13683985282539" />
+      <entry key="S60" value="36.50487517583596" />
+      <entry key="M2" value="39.41578591667564" />
+      <entry key="M5" value="43.207986457125415" />
+      <entry key="M10" value="50.647803310963305" />
+      <entry key="M15" value="59.156213476358516" />
+      <entry key="M30" value="92.08421996355877" />
+      <entry key="H1" value="177.76651532600383" />
+      <entry key="H2" value="350.8004011261576" />
+      <entry key="H4" value="582.0176849914773" />
+      <entry key="D1" value="986.2894191960322" />
+      <entry key="W1" value="1090.319200197313" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="3.2431256932363827E-245" />
+      <entry key="S30" value="7.687357902393762E-82" />
+      <entry key="S60" value="5.514107063160638E-41" />
+      <entry key="M2" value="1.483065015956504E-20" />
+      <entry key="M5" value="2.693931838233149E-8" />
+      <entry key="M10" value="3.586645743238586E-4" />
+      <entry key="M15" value="0.01035971913331139" />
+      <entry key="M30" value="0.4692647432395314" />
+      <entry key="H1" value="4.510277809305392" />
+      <entry key="H2" value="17.05337992268644" />
+      <entry key="H4" value="35.96623540611619" />
+      <entry key="D1" value="70.41286644718737" />
+      <entry key="W1" value="79.38592669194328" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.3499455396449596" />
+      <entry key="MS500" value="3.680796752190606" />
+      <entry key="S2" value="8.447969740251176" />
+      <entry key="S5" value="15.456906509949137" />
+      <entry key="S10" value="22.036579677322344" />
+      <entry key="S30" value="32.12048642780893" />
+      <entry key="S60" value="36.49518954683353" />
+      <entry key="M2" value="39.410445750311155" />
+      <entry key="M5" value="43.205446460465225" />
+      <entry key="M10" value="50.64631084021576" />
+      <entry key="M15" value="59.16491630419208" />
+      <entry key="M30" value="92.55078408509432" />
+      <entry key="H1" value="182.2677120797673" />
+      <entry key="H2" value="367.8368369531256" />
+      <entry key="H4" value="617.9661433761181" />
+      <entry key="D1" value="1056.6965506451693" />
+      <entry key="W1" value="1169.704205774361" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -78,16 +110,18 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#2 on dev&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;junie.plugin.stays.banner.dismissed&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/adamh/Documents/Coding/app&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -105,11 +139,15 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\adamh\Documents\Coding\app" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adamh\Documents\Coding\assets" />
+      <recent name="C:\Users\adamh\Documents\Coding\app-example" />
+      <recent name="C:\Users\adamh\Documents\Coding" />
       <recent name="C:\Users\adamh\Documents\Coding\app" />
       <recent name="C:\Users\adamh\Documents\Coding\app\(tabs)" />
-      <recent name="C:\Users\adamh\Documents\Coding\app\(tabs)\subscriptions" />
-      <recent name="C:\Users\adamh\Documents\Coding" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -127,11 +165,49 @@
       <option name="presentableId" value="Default" />
       <updated>1789443294795</updated>
       <workItem from="1789443296167" duration="9445000" />
-      <workItem from="1789603001701" duration="4321000" />
+      <workItem from="1789603001701" duration="7863000" />
+      <workItem from="1789611572579" duration="927000" />
+      <workItem from="1789694393059" duration="2767000" />
+      <workItem from="1789699935651" duration="3827000" />
+      <workItem from="1789855455051" duration="2802000" />
+      <workItem from="1789866097423" duration="3523000" />
+      <workItem from="1789871012748" duration="397000" />
+      <workItem from="1789873316282" duration="4751000" />
+      <workItem from="1789885204756" duration="2282000" />
+      <workItem from="1789956896258" duration="4604000" />
+      <workItem from="1790027324120" duration="4656000" />
+      <workItem from="1790032531785" duration="1463000" />
+      <workItem from="1790053591532" duration="2503000" />
+      <workItem from="1790120054836" duration="3610000" />
+      <workItem from="1790130218212" duration="9256000" />
+      <workItem from="1790201899954" duration="3009000" />
+      <workItem from="1790218406203" duration="1023000" />
+      <workItem from="1790227484107" duration="1872000" />
     </task>
+    <task id="LOCAL-00001" summary="all code commited">
+      <option name="closed" value="true" />
+      <created>1789607528786</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789607528786</updated>
+    </task>
+    <task id="LOCAL-00002" summary="all code commited">
+      <option name="closed" value="true" />
+      <created>1789607565331</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1789607565331</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="all code commited" />
+    <option name="LAST_COMMIT_MESSAGE" value="all code commited" />
   </component>
 </project>
