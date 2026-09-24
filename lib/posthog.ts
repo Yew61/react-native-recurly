@@ -2,7 +2,6 @@ import Constants from 'expo-constants'
 import PostHog from 'posthog-react-native'
 
 const extra = Constants.expoConfig?.extra
-console.log('PostHog Extra Config:', extra);
 const projectToken = extra?.posthogProjectToken as string | undefined
 const host = extra?.posthogHost as string | undefined
 

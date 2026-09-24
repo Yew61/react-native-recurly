@@ -7,6 +7,7 @@ import { ClerkProvider, useAuth } from '@clerk/expo';
 import { PostHogProvider } from 'posthog-react-native'
 import { tokenCache } from '@/lib/tokenCache';
 import { posthog } from '@/lib/posthog'
+import { SubscriptionProvider } from '@/lib/SubscriptionContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -54,7 +55,9 @@ export default function RootLayout() {
         publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}
         tokenCache={tokenCache}
     >
-        <InitialLayout />
+        <SubscriptionProvider>
+            <InitialLayout />
+        </SubscriptionProvider>
     </ClerkProvider>
   )
 
