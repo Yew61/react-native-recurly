@@ -39,8 +39,7 @@ export default function CreateSubscriptionModal({ visible, onClose, onAddSubscri
 
         onAddSubscription(newSubscription);
 
-        // @ts-ignore
-        posthog.capture("Subscription Created", {
+        posthog?.capture("Subscription Created", {
             subscription_name: name.trim(),
             subscription_price: price,
             subscription_frequency: frequency,

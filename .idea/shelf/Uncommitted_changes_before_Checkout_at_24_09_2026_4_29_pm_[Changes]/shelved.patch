@@ -1,0 +1,277 @@
+Index: app/_layout.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {SplashScreen, Stack, Slot, useRouter, useSegments} from \"expo-router\";\r\n\r\nimport '@/global.css'\r\nimport {useFonts} from \"expo-font\";\r\nimport {useEffect} from \"react\";\r\nimport { ClerkProvider, useAuth } from '@clerk/expo';\r\nimport { PostHogProvider } from 'posthog-react-native'\r\nimport { tokenCache } from '@/lib/tokenCache';\r\nimport { posthog } from '@/lib/posthog'\r\nimport { SubscriptionProvider } from '@/lib/SubscriptionContext';\r\n\r\nSplashScreen.preventAutoHideAsync();\r\n\r\nfunction InitialLayout() {\r\n  const { isLoaded, isSignedIn } = useAuth();\r\n  const segments = useSegments();\r\n  const router = useRouter();\r\n\r\n  useEffect(() => {\r\n    if (!isLoaded) return;\r\n    const inAuthGroup = segments[0] === '(auth)';\r\n    if (isSignedIn && inAuthGroup) {\r\n      router.replace('/(tabs)');\r\n    } else if (!isSignedIn && !inAuthGroup) {\r\n      router.replace('/(auth)/sign-in');\r\n    }\r\n  }, [isSignedIn, isLoaded, segments]);\r\n\r\n  return <Slot />;\r\n}\r\n\r\nexport default function RootLayout() {\r\n\r\n   const [fontsLoaded] = useFonts({\r\n     \"sans-regular\" : require(\"../assets/fonts/PlusJakartaSans-Regular.ttf\"),\r\n     \"sans-bold\" : require(\"../assets/fonts/PlusJakartaSans-Bold.ttf\"),\r\n     \"sans-medium\" : require(\"../assets/fonts/PlusJakartaSans-Medium.ttf\"),\r\n     \"sans-semibold\" : require(\"../assets/fonts/PlusJakartaSans-SemiBold.ttf\"),\r\n     \"sans-extrabold\" : require(\"../assets/fonts/PlusJakartaSans-ExtraBold.ttf\"),\r\n     \"sans-light\" : require(\"../assets/fonts/PlusJakartaSans-Light.ttf\")\r\n   })\r\n\r\n  useEffect(() => {\r\n    if(fontsLoaded) {\r\n      SplashScreen.hideAsync();\r\n    }\r\n  }, [fontsLoaded])\r\n  if(!fontsLoaded){\r\n    return null\r\n  }\r\n\r\n\r\n  const app = (\r\n    <ClerkProvider\r\n        publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}\r\n        tokenCache={tokenCache}\r\n    >\r\n        <SubscriptionProvider>\r\n            <InitialLayout />\r\n        </SubscriptionProvider>\r\n    </ClerkProvider>\r\n  )\r\n\r\n  return posthog ? <PostHogProvider client={posthog}>{app}</PostHogProvider> : app;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/_layout.tsx b/app/_layout.tsx
+--- a/app/_layout.tsx	(revision 603bb13b6c2d1a24fdc158e87b5100ed431be5f9)
++++ b/app/_layout.tsx	(date 1790231224033)
+@@ -7,7 +7,6 @@
+ import { PostHogProvider } from 'posthog-react-native'
+ import { tokenCache } from '@/lib/tokenCache';
+ import { posthog } from '@/lib/posthog'
+-import { SubscriptionProvider } from '@/lib/SubscriptionContext';
+ 
+ SplashScreen.preventAutoHideAsync();
+ 
+@@ -55,9 +54,7 @@
+         publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}
+         tokenCache={tokenCache}
+     >
+-        <SubscriptionProvider>
+-            <InitialLayout />
+-        </SubscriptionProvider>
++        <InitialLayout />
+     </ClerkProvider>
+   )
+ 
+Index: app/(tabs)/subscriptions.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { useState, useMemo } from 'react';\r\nimport {Text, View, TextInput, FlatList} from 'react-native'\r\nimport {SafeAreaView as RNSafeAreaView} from \"react-native-safe-area-context\"\r\nimport {styled} from \"nativewind\";\r\nimport { useSubscriptions } from '@/lib/SubscriptionContext';\r\nimport SubscriptionCard from '@/components/SubscriptionCard';\r\n\r\nconst SafeAreaView = styled(RNSafeAreaView);\r\n\r\nconst Subscriptions = () => {\r\n    const { subscriptions } = useSubscriptions();\r\n    const [searchQuery, setSearchQuery] = useState(\"\");\r\n    const [expandedId, setExpandedId] = useState<string | null>(null);\r\n\r\n    const filteredSubscriptions = useMemo(() => {\r\n        return subscriptions.filter(sub => \r\n            sub.name.toLowerCase().includes(searchQuery.toLowerCase()) ||\r\n            sub.category?.toLowerCase().includes(searchQuery.toLowerCase())\r\n        );\r\n    }, [searchQuery, subscriptions]);\r\n\r\n    return (\r\n        <SafeAreaView className=\"flex-1 bg-background p-5\">\r\n            <Text className=\"text-2xl font-sans-bold text-primary mb-5\">Subscriptions</Text>\r\n            <TextInput\r\n                className=\"auth-input mb-5\"\r\n                placeholder=\"Search subscriptions...\"\r\n                value={searchQuery}\r\n                onChangeText={setSearchQuery}\r\n            />\r\n            <FlatList\r\n                data={filteredSubscriptions}\r\n                keyExtractor={(item) => item.id}\r\n                renderItem={({ item }) => (\r\n                    <View className=\"mb-4\">\r\n                        <SubscriptionCard\r\n                            {...item}\r\n                            expanded={expandedId === item.id}\r\n                            onPress={() => setExpandedId(expandedId === item.id ? null : item.id)}\r\n                        />\r\n                    </View>\r\n                )}\r\n                ListEmptyComponent={<Text>No subscriptions found</Text>}\r\n                contentContainerClassName=\"pb-30\"\r\n                showsVerticalScrollIndicator={false}\r\n                keyboardDismissMode=\"on-drag\"\r\n            />\r\n        </SafeAreaView>\r\n    )\r\n}\r\n\r\nexport default Subscriptions
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/(tabs)/subscriptions.tsx b/app/(tabs)/subscriptions.tsx
+--- a/app/(tabs)/subscriptions.tsx	(revision 603bb13b6c2d1a24fdc158e87b5100ed431be5f9)
++++ b/app/(tabs)/subscriptions.tsx	(date 1790231224119)
+@@ -2,22 +2,21 @@
+ import {Text, View, TextInput, FlatList} from 'react-native'
+ import {SafeAreaView as RNSafeAreaView} from "react-native-safe-area-context"
+ import {styled} from "nativewind";
+-import { useSubscriptions } from '@/lib/SubscriptionContext';
++import { HOME_SUBSCRIPTIONS } from '@/constants/data';
+ import SubscriptionCard from '@/components/SubscriptionCard';
+ 
+ const SafeAreaView = styled(RNSafeAreaView);
+ 
+ const Subscriptions = () => {
+-    const { subscriptions } = useSubscriptions();
+     const [searchQuery, setSearchQuery] = useState("");
+     const [expandedId, setExpandedId] = useState<string | null>(null);
+ 
+     const filteredSubscriptions = useMemo(() => {
+-        return subscriptions.filter(sub => 
++        return HOME_SUBSCRIPTIONS.filter(sub => 
+             sub.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+             sub.category?.toLowerCase().includes(searchQuery.toLowerCase())
+         );
+-    }, [searchQuery, subscriptions]);
++    }, [searchQuery]);
+ 
+     return (
+         <SafeAreaView className="flex-1 bg-background p-5">
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"387b3a5e-0880-403f-9670-eb9b801e0ef9\" name=\"Changes\" comment=\"all code commited\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/components/CreateSubscriptionModal.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/components/CreateSubscriptionModal.tsx\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"EmbeddingIndexingInfo\">\r\n    <option name=\"cachedIndexableFilesCount\" value=\"138\" />\r\n    <option name=\"fileBasedEmbeddingIndicesEnabled\" value=\"true\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Yew61&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Yew61/react-native-recurly.git&quot;,\r\n    &quot;accountId&quot;: &quot;60574a5b-1126-4c3c-af67-df1053206419&quot;\r\n  }\r\n}</component>\r\n  <component name=\"McpProjectServerCommands\">\r\n    <commands />\r\n    <urls />\r\n  </component>\r\n  <component name=\"NextEditCompletionFeaturesState\">\r\n    <decayedCancelled>\r\n      <entry key=\"MS100\" value=\"1.0\" />\r\n      <entry key=\"MS500\" value=\"1.0002634026589576\" />\r\n      <entry key=\"S2\" value=\"1.1741272065733743\" />\r\n      <entry key=\"S5\" value=\"1.839484254369042\" />\r\n      <entry key=\"S10\" value=\"2.576614227652393\" />\r\n      <entry key=\"S30\" value=\"4.0859534897307\" />\r\n      <entry key=\"S60\" value=\"5.136917236723396\" />\r\n      <entry key=\"M2\" value=\"7.006787483062003\" />\r\n      <entry key=\"M5\" value=\"23.470366652226147\" />\r\n      <entry key=\"M10\" value=\"52.52794816945765\" />\r\n      <entry key=\"M15\" value=\"73.89514719056672\" />\r\n      <entry key=\"M30\" value=\"122.37014366614103\" />\r\n      <entry key=\"H1\" value=\"214.53242534112212\" />\r\n      <entry key=\"H2\" value=\"391.05668732929115\" />\r\n      <entry key=\"H4\" value=\"629.4664268763105\" />\r\n      <entry key=\"D1\" value=\"1055.0709709177972\" />\r\n      <entry key=\"W1\" value=\"1166.023262491674\" />\r\n    </decayedCancelled>\r\n    <decayedSelected>\r\n      <entry key=\"MS100\" value=\"2.513566923875991E-254\" />\r\n      <entry key=\"MS500\" value=\"1.905715606541837E-51\" />\r\n      <entry key=\"S2\" value=\"2.0928333858533334E-13\" />\r\n      <entry key=\"S5\" value=\"9.127025155082658E-6\" />\r\n      <entry key=\"S10\" value=\"0.003719833420197124\" />\r\n      <entry key=\"S30\" value=\"0.23596240065605356\" />\r\n      <entry key=\"S60\" value=\"0.6831203070109398\" />\r\n      <entry key=\"M2\" value=\"1.1672066210638206\" />\r\n      <entry key=\"M5\" value=\"1.611865906260643\" />\r\n      <entry key=\"M10\" value=\"1.795487536512129\" />\r\n      <entry key=\"M15\" value=\"1.8659540815394835\" />\r\n      <entry key=\"M30\" value=\"2.249858434785941\" />\r\n      <entry key=\"H1\" value=\"5.692096922016565\" />\r\n      <entry key=\"H2\" value=\"17.485709931990655\" />\r\n      <entry key=\"H4\" value=\"36.28409410253762\" />\r\n      <entry key=\"D1\" value=\"71.85453509337329\" />\r\n      <entry key=\"W1\" value=\"81.29572242278633\" />\r\n    </decayedSelected>\r\n    <decayedShown>\r\n      <entry key=\"MS100\" value=\"0.0029809750175010907\" />\r\n      <entry key=\"MS500\" value=\"0.3125508157319969\" />\r\n      <entry key=\"S2\" value=\"0.8562423938611504\" />\r\n      <entry key=\"S5\" value=\"1.5447086495697135\" />\r\n      <entry key=\"S10\" value=\"2.2968818477107136\" />\r\n      <entry key=\"S30\" value=\"4.132985406103617\" />\r\n      <entry key=\"S60\" value=\"5.6894910424526195\" />\r\n      <entry key=\"M2\" value=\"8.092268508747878\" />\r\n      <entry key=\"M5\" value=\"25.043065146040227\" />\r\n      <entry key=\"M10\" value=\"54.30177499499971\" />\r\n      <entry key=\"M15\" value=\"75.74581684287602\" />\r\n      <entry key=\"M30\" value=\"124.61062812164727\" />\r\n      <entry key=\"H1\" value=\"220.21317380925183\" />\r\n      <entry key=\"H2\" value=\"408.5250504636046\" />\r\n      <entry key=\"H4\" value=\"665.732594219469\" />\r\n      <entry key=\"D1\" value=\"1126.9196527997128\" />\r\n      <entry key=\"W1\" value=\"1247.3180414578062\" />\r\n    </decayedShown>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3JLbSIt4XbTLpG2EG0L5d8ehfaq\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,\r\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\r\n    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;#2 on dev&quot;,\r\n    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,\r\n    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,\r\n    &quot;junie.plugin.stays.banner.dismissed&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/adamh/Documents/Coding/app&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\r\n    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,\r\n    &quot;ts.external.directory.path&quot;: &quot;C:\\\\Users\\\\adamh\\\\Documents\\\\Coding\\\\node_modules\\\\typescript\\\\lib&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [\r\n      &quot;TEXT&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\adamh\\Documents\\Coding\\app\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\adamh\\Documents\\Coding\\assets\" />\r\n      <recent name=\"C:\\Users\\adamh\\Documents\\Coding\\app-example\" />\r\n      <recent name=\"C:\\Users\\adamh\\Documents\\Coding\" />\r\n      <recent name=\"C:\\Users\\adamh\\Documents\\Coding\\app\" />\r\n      <recent name=\"C:\\Users\\adamh\\Documents\\Coding\\app\\(tabs)\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"387b3a5e-0880-403f-9670-eb9b801e0ef9\" name=\"Changes\" comment=\"\" />\r\n      <created>1789443294795</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1789443294795</updated>\r\n      <workItem from=\"1789443296167\" duration=\"9445000\" />\r\n      <workItem from=\"1789603001701\" duration=\"7863000\" />\r\n      <workItem from=\"1789611572579\" duration=\"927000\" />\r\n      <workItem from=\"1789694393059\" duration=\"2767000\" />\r\n      <workItem from=\"1789699935651\" duration=\"3827000\" />\r\n      <workItem from=\"1789855455051\" duration=\"2802000\" />\r\n      <workItem from=\"1789866097423\" duration=\"3523000\" />\r\n      <workItem from=\"1789871012748\" duration=\"397000\" />\r\n      <workItem from=\"1789873316282\" duration=\"4751000\" />\r\n      <workItem from=\"1789885204756\" duration=\"2282000\" />\r\n      <workItem from=\"1789956896258\" duration=\"4604000\" />\r\n      <workItem from=\"1790027324120\" duration=\"4656000\" />\r\n      <workItem from=\"1790032531785\" duration=\"1463000\" />\r\n      <workItem from=\"1790053591532\" duration=\"2503000\" />\r\n      <workItem from=\"1790120054836\" duration=\"3610000\" />\r\n      <workItem from=\"1790130218212\" duration=\"9256000\" />\r\n      <workItem from=\"1790201899954\" duration=\"3009000\" />\r\n      <workItem from=\"1790218406203\" duration=\"1023000\" />\r\n      <workItem from=\"1790227484107\" duration=\"2680000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"all code commited\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1789607528786</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1789607528786</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"all code commited\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1789607565331</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1789607565331</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"all code commited\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"all code commited\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 603bb13b6c2d1a24fdc158e87b5100ed431be5f9)
++++ b/.idea/workspace.xml	(date 1790231101794)
+@@ -6,7 +6,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="387b3a5e-0880-403f-9670-eb9b801e0ef9" name="Changes" comment="all code commited">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/components/CreateSubscriptionModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CreateSubscriptionModal.tsx" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -38,61 +37,61 @@
+   </component>
+   <component name="NextEditCompletionFeaturesState">
+     <decayedCancelled>
+-      <entry key="MS100" value="1.0" />
+-      <entry key="MS500" value="1.0002634026589576" />
+-      <entry key="S2" value="1.1741272065733743" />
+-      <entry key="S5" value="1.839484254369042" />
+-      <entry key="S10" value="2.576614227652393" />
+-      <entry key="S30" value="4.0859534897307" />
+-      <entry key="S60" value="5.136917236723396" />
+-      <entry key="M2" value="7.006787483062003" />
+-      <entry key="M5" value="23.470366652226147" />
+-      <entry key="M10" value="52.52794816945765" />
+-      <entry key="M15" value="73.89514719056672" />
+-      <entry key="M30" value="122.37014366614103" />
+-      <entry key="H1" value="214.53242534112212" />
+-      <entry key="H2" value="391.05668732929115" />
+-      <entry key="H4" value="629.4664268763105" />
+-      <entry key="D1" value="1055.0709709177972" />
+-      <entry key="W1" value="1166.023262491674" />
++      <entry key="MS100" value="1.5011046598641453" />
++      <entry key="MS500" value="3.5441420208907917" />
++      <entry key="S2" value="7.92481071993843" />
++      <entry key="S5" value="16.274815128959983" />
++      <entry key="S10" value="25.984633439454917" />
++      <entry key="S30" value="40.98104191926883" />
++      <entry key="S60" value="47.20172425017541" />
++      <entry key="M2" value="51.43000938628961" />
++      <entry key="M5" value="61.96783064810145" />
++      <entry key="M10" value="86.09260903868218" />
++      <entry key="M15" value="107.48071333992173" />
++      <entry key="M30" value="158.40483714103829" />
++      <entry key="H1" value="252.34101353075346" />
++      <entry key="H2" value="430.1270733974794" />
++      <entry key="H4" value="671.5361836648252" />
++      <entry key="D1" value="1106.4318433458643" />
++      <entry key="W1" value="1220.4479603641153" />
+     </decayedCancelled>
+     <decayedSelected>
+-      <entry key="MS100" value="2.513566923875991E-254" />
+-      <entry key="MS500" value="1.905715606541837E-51" />
+-      <entry key="S2" value="2.0928333858533334E-13" />
+-      <entry key="S5" value="9.127025155082658E-6" />
+-      <entry key="S10" value="0.003719833420197124" />
+-      <entry key="S30" value="0.23596240065605356" />
+-      <entry key="S60" value="0.6831203070109398" />
+-      <entry key="M2" value="1.1672066210638206" />
+-      <entry key="M5" value="1.611865906260643" />
+-      <entry key="M10" value="1.795487536512129" />
+-      <entry key="M15" value="1.8659540815394835" />
+-      <entry key="M30" value="2.249858434785941" />
+-      <entry key="H1" value="5.692096922016565" />
+-      <entry key="H2" value="17.485709931990655" />
+-      <entry key="H4" value="36.28409410253762" />
+-      <entry key="D1" value="71.85453509337329" />
+-      <entry key="W1" value="81.29572242278633" />
++      <entry key="MS100" value="0.0" />
++      <entry key="MS500" value="2.6494803270263E-310" />
++      <entry key="S2" value="4.041199651893707E-78" />
++      <entry key="S5" value="1.1875161054008012E-31" />
++      <entry key="S10" value="4.2430546198836677E-16" />
++      <entry key="S30" value="1.1443560837330399E-5" />
++      <entry key="S60" value="0.00475725448397373" />
++      <entry key="M2" value="0.09740412215400168" />
++      <entry key="M5" value="0.5968988566250565" />
++      <entry key="M10" value="1.092617906265386" />
++      <entry key="M15" value="1.3399591687377053" />
++      <entry key="M30" value="1.9065600941567242" />
++      <entry key="H1" value="5.2398630888313935" />
++      <entry key="H2" value="16.7767215423331" />
++      <entry key="H4" value="35.540881724145194" />
++      <entry key="D1" value="71.60711379366616" />
++      <entry key="W1" value="81.25567317623319" />
+     </decayedSelected>
+     <decayedShown>
+-      <entry key="MS100" value="0.0029809750175010907" />
+-      <entry key="MS500" value="0.3125508157319969" />
+-      <entry key="S2" value="0.8562423938611504" />
+-      <entry key="S5" value="1.5447086495697135" />
+-      <entry key="S10" value="2.2968818477107136" />
+-      <entry key="S30" value="4.132985406103617" />
+-      <entry key="S60" value="5.6894910424526195" />
+-      <entry key="M2" value="8.092268508747878" />
+-      <entry key="M5" value="25.043065146040227" />
+-      <entry key="M10" value="54.30177499499971" />
+-      <entry key="M15" value="75.74581684287602" />
+-      <entry key="M30" value="124.61062812164727" />
+-      <entry key="H1" value="220.21317380925183" />
+-      <entry key="H2" value="408.5250504636046" />
+-      <entry key="H4" value="665.732594219469" />
+-      <entry key="D1" value="1126.9196527997128" />
+-      <entry key="W1" value="1247.3180414578062" />
++      <entry key="MS100" value="1.381098227565138" />
++      <entry key="MS500" value="3.4579181061120488" />
++      <entry key="S2" value="7.878525106781488" />
++      <entry key="S5" value="16.23818252765943" />
++      <entry key="S10" value="25.95433243533207" />
++      <entry key="S30" value="40.9641936743179" />
++      <entry key="S60" value="47.19570528335311" />
++      <entry key="M2" value="51.51522730420001" />
++      <entry key="M5" value="62.54796394631382" />
++      <entry key="M10" value="87.17089487128895" />
++      <entry key="M15" value="108.80892489063473" />
++      <entry key="M30" value="160.30306544195568" />
++      <entry key="H1" value="257.57023513737073" />
++      <entry key="H2" value="446.8870540250109" />
++      <entry key="H4" value="707.0594570532047" />
++      <entry key="D1" value="1178.0331159489656" />
++      <entry key="W1" value="1301.7026893863747" />
+     </decayedShown>
+   </component>
+   <component name="ProjectColorInfo">{
+@@ -179,7 +178,7 @@
+       <workItem from="1790130218212" duration="9256000" />
+       <workItem from="1790201899954" duration="3009000" />
+       <workItem from="1790218406203" duration="1023000" />
+-      <workItem from="1790227484107" duration="2680000" />
++      <workItem from="1790227484107" duration="3543000" />
+     </task>
+     <task id="LOCAL-00001" summary="all code commited">
+       <option name="closed" value="true" />
+Index: app/(tabs)/index.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import \"@/global.css\"\r\nimport {Text, View, Image, FlatList, Pressable} from \"react-native\";\r\nimport {Link} from \"expo-router\";\r\nimport images from '@/constants/images'\r\nimport {SafeAreaView as RNSafeAreaView} from \"react-native-safe-area-context\"\r\nimport {styled} from \"nativewind\";\r\nimport {HOME_BALANCE, HOME_SUBSCRIPTIONS, HOME_USER, UPCOMING_SUBSCRIPTIONS} from \"@/constants/data\";\r\nimport {icons} from \"@/constants/icons\";\r\nimport {formatCurrency} from \"@/lib/utils\";\r\nimport dayjs, {Dayjs} from \"dayjs\";\r\nimport ListHeading from \"@/components/ListHeading\";\r\nimport UpcomingSubscriptionCard from \"@/components/UpcomingSubscriptionCard\";\r\nimport SubscriptionCard from \"@/components/SubscriptionCard\";\r\nimport {useState} from \"react\";\r\nimport {useUser} from \"@clerk/expo\";\r\nimport {posthog} from \"@/lib/posthog\";\r\nimport {posthogAppLogger} from \"@/lib/posthogLogs\";\r\nimport CreateSubscriptionModal from \"@/components/CreateSubscriptionModal\";\r\nimport { useSubscriptions } from \"@/lib/SubscriptionContext\";\r\n\r\nconst SafeAreaView = styled(RNSafeAreaView);\r\n\r\nexport default function App() {\r\n    const { subscriptions, addSubscription } = useSubscriptions();\r\n    const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);\r\n    const [isModalVisible, setIsModalVisible] = useState(false);\r\n    const { user } = useUser();\r\n\r\n    // Get user display name: firstName, fullName, or email\r\n    const displayName = user?.firstName || user?.fullName || user?.emailAddresses[0]?.emailAddress || 'User';\r\n\r\n    const onSubscriptionPress = (subscriptionId: string) => {\r\n        const isExpanded = expandedSubscriptionId === subscriptionId;\r\n        posthog?.capture('subscription_details_toggled', {\r\n            is_expanded: !isExpanded,\r\n        });\r\n        posthogAppLogger.info('subscription_details_toggled', {\r\n            is_expanded: !isExpanded,\r\n        });\r\n        setExpandedSubscriptionId(isExpanded ? null : subscriptionId);\r\n    };\r\n\r\n    return (\r\n        <>\r\n        <SafeAreaView className=\"flex-1 bg-background p-5\">\r\n                <FlatList\r\n                    ListHeaderComponent={() =>(\r\n                        <>\r\n                            <View className='home-header'>\r\n                                <View className=\"home-user\">\r\n                                    <Image\r\n                                        source={user?.imageUrl ? { uri: user.imageUrl } : images.avatar}\r\n                                        className=\"home-avatar\"\r\n                                    />\r\n                                    <Text className=\"home-user-name\">{displayName}</Text>\r\n                                </View>\r\n\r\n                                <Pressable onPress={() => setIsModalVisible(true)}>\r\n                                    <Image className=\"home-add-icon\" source={icons.add} />\r\n                                </Pressable>\r\n                            </View>\r\n\r\n                            <View className=\"home-balance-card\">\r\n                                <Text className=\"home-balance-label\">Balance</Text>\r\n\r\n                                <View className=\"home-balance-row\">\r\n                                    <Text className=\"home-balance-amount\">\r\n                                        {formatCurrency(HOME_BALANCE.amount)}\r\n                                    </Text>\r\n                                    <Text className=\"home-balance-date\">\r\n                                        {dayjs(HOME_BALANCE.nextRenewalDate).format(\"DD/MM\")}\r\n                                    </Text>\r\n                                </View>\r\n                            </View>\r\n\r\n                            <View className='mb-5'>\r\n                                <ListHeading title=\"Upcoming\"/>\r\n                                <FlatList\r\n                                    data={UPCOMING_SUBSCRIPTIONS}\r\n                                    renderItem = {({item}) => (\r\n                                        <UpcomingSubscriptionCard {...item}/>\r\n                                    )}\r\n                                    keyExtractor={(item) => item.id}\r\n                                    horizontal\r\n                                    showsHorizontalScrollIndicator={false}\r\n                                    ListEmptyComponent={<Text className=\"home-empty-state\">No upcoming subscriptions</Text>}\r\n                                />\r\n                            </View>\r\n\r\n                            <ListHeading title=\"All Subscriptions\"/>\r\n                        </>\r\n                    )}\r\n                    data={subscriptions}\r\n                    keyExtractor={(item) => item.id}\r\n                    renderItem={({item}) => (\r\n                        <SubscriptionCard\r\n                            {...item}\r\n                            expanded={expandedSubscriptionId === item.id}\r\n                            onPress={() => onSubscriptionPress(item.id)}\r\n                        />\r\n                    )}\r\n                    extraData={expandedSubscriptionId}\r\n                    ItemSeparatorComponent={() => <View className=\"h-4\"/>}\r\n                    showsVerticalScrollIndicator={false}\r\n                    ListEmptyComponent={<Text className=\"home-empty-state\">No subscriptions yet</Text>}\r\n                    contentContainerClassName=\"pb-30\"\r\n                />\r\n        </SafeAreaView>\r\n        <CreateSubscriptionModal\r\n            visible={isModalVisible}\r\n            onClose={() => setIsModalVisible(false)}\r\n            onAddSubscription={addSubscription}\r\n        />\r\n        </>\r\n    );\r\n}
+===================================================================
+diff --git a/app/(tabs)/index.tsx b/app/(tabs)/index.tsx
+--- a/app/(tabs)/index.tsx	(revision 603bb13b6c2d1a24fdc158e87b5100ed431be5f9)
++++ b/app/(tabs)/index.tsx	(date 1790231224182)
+@@ -1,5 +1,5 @@
+ import "@/global.css"
+-import {Text, View, Image, FlatList, Pressable} from "react-native";
++import {Text, View, Image, FlatList} from "react-native";
+ import {Link} from "expo-router";
+ import images from '@/constants/images'
+ import {SafeAreaView as RNSafeAreaView} from "react-native-safe-area-context"
+@@ -15,15 +15,10 @@
+ import {useUser} from "@clerk/expo";
+ import {posthog} from "@/lib/posthog";
+ import {posthogAppLogger} from "@/lib/posthogLogs";
+-import CreateSubscriptionModal from "@/components/CreateSubscriptionModal";
+-import { useSubscriptions } from "@/lib/SubscriptionContext";
+-
+ const SafeAreaView = styled(RNSafeAreaView);
+ 
+ export default function App() {
+-    const { subscriptions, addSubscription } = useSubscriptions();
+     const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
+-    const [isModalVisible, setIsModalVisible] = useState(false);
+     const { user } = useUser();
+ 
+     // Get user display name: firstName, fullName, or email
+@@ -41,7 +36,6 @@
+     };
+ 
+     return (
+-        <>
+         <SafeAreaView className="flex-1 bg-background p-5">
+                 <FlatList
+                     ListHeaderComponent={() =>(
+@@ -55,9 +49,7 @@
+                                     <Text className="home-user-name">{displayName}</Text>
+                                 </View>
+ 
+-                                <Pressable onPress={() => setIsModalVisible(true)}>
+-                                    <Image className="home-add-icon" source={icons.add} />
+-                                </Pressable>
++                                <Image className="home-add-icon" source={icons.add} />
+                             </View>
+ 
+                             <View className="home-balance-card">
+@@ -90,7 +82,7 @@
+                             <ListHeading title="All Subscriptions"/>
+                         </>
+                     )}
+-                    data={subscriptions}
++                    data={HOME_SUBSCRIPTIONS}
+                     keyExtractor={(item) => item.id}
+                     renderItem={({item}) => (
+                         <SubscriptionCard
+@@ -106,11 +98,5 @@
+                     contentContainerClassName="pb-30"
+                 />
+         </SafeAreaView>
+-        <CreateSubscriptionModal
+-            visible={isModalVisible}
+-            onClose={() => setIsModalVisible(false)}
+-            onAddSubscription={addSubscription}
+-        />
+-        </>
+     );
+ }
+\ No newline at end of file
