@@ -3,6 +3,7 @@ import { Modal, View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, P
 import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import { icons } from '@/constants/icons';
+import {posthog} from "@/lib/posthog";
 
 interface CreateSubscriptionModalProps {
     visible: boolean;
@@ -37,6 +38,15 @@ export default function CreateSubscriptionModal({ visible, onClose, onAddSubscri
         };
 
         onAddSubscription(newSubscription);
+
+        // @ts-ignore
+        posthog.capture("Subscription Created", {
+            subscription_name: name.trim(),
+            subscription_price: price,
+            subscription_frequency: frequency,
+            subscription_category: category,
+        })
+
         setName('');
         setPrice('');
         onClose();
