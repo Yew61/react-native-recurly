@@ -17,6 +17,7 @@ import setting from "@/assets/icons/setting.png";
 import spotify from "@/assets/icons/spotify.png";
 import wallet from "@/assets/icons/wallet.png";
 
+
 export const icons = {
     home,
     wallet,

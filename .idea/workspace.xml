@@ -5,11 +5,144 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="387b3a5e-0880-403f-9670-eb9b801e0ef9" name="Changes" comment="all code commited">
+      <change afterPath="$PROJECT_DIR$/Clarity/app/(tabs)/_layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/app/(tabs)/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/app/(tabs)/settings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/app/(tabs)/statistics.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/app/(tabs)/tracking.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/app/(trackingPages)/emotions.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/assets/images/Emotions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/assets/images/good.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/assets/images/low.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/assets/images/ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/components/trackingCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/components/wellbeingCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/constants/data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/constants/icons.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/constants/images.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/constants/theme.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/image.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/nativewind-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Clarity/type.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ai/mcp/mcp.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.claude/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.claude/skills/integration-react-native/.posthog-wizard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.claude/skills/integration-react-native/references/identify-users.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.claude/skills/integration-react-native/references/react-native.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2026_4_29_pm_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2026_4_29_pm_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2026_4_29_pm__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_24_09_2026_4_29_pm__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/subscriptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/subscriptions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/posthog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/posthog.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/.posthog-wizard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/SKILL.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/1-begin.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/2-edit.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/3-revise.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/4-conclude.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/COMMANDMENTS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/EXAMPLE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/identify-users.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.posthog/wizard-spellbook-9urUhy/skills/integration-react-native/references/react-native.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AGENTS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/_layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/insights.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/settings.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/subscriptions.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/onboarding.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/subscriptions/[id].tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Coding.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/expo.icon/Assets/expo-symbol 2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/expo.icon/Assets/grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/expo.icon/icon.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/PlusJakartaSans-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/PlusJakartaSans-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/PlusJakartaSans-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/PlusJakartaSans-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/PlusJakartaSans-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/PlusJakartaSans-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/activity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/adobe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/canva.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/claude.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/dropbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/figma.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/medium.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/netflix.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/notion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/openai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/setting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/spotify.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/wallet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/android-icon-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/android-icon-foreground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/android-icon-monochrome.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/expo-badge-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/expo-badge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/expo-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/logo-glow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/react-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/react-logo@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/splash-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/splash-pattern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tabIcons/explore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tabIcons/explore@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tabIcons/explore@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tabIcons/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tabIcons/home@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tabIcons/home@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tutorial-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CreateSubscriptionModal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListHeading.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SubscriptionCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UpcomingSubscriptionCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/data.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/icons.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/images.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/theme.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SubscriptionContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/posthog.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/posthogLogs.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tokenCache.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metro.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nativewind-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/type.d.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +150,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="138" />
+    <option name="cachedIndexableFilesCount" value="264" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -41,61 +179,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.5430349116134128" />
-      <entry key="MS500" value="3.8108002884007064" />
-      <entry key="S2" value="8.512407970942135" />
-      <entry key="S5" value="15.499199715074848" />
-      <entry key="S10" value="22.06711289334163" />
-      <entry key="S30" value="32.13683985282539" />
-      <entry key="S60" value="36.50487517583596" />
-      <entry key="M2" value="39.41578591667564" />
-      <entry key="M5" value="43.207986457125415" />
-      <entry key="M10" value="50.647803310963305" />
-      <entry key="M15" value="59.156213476358516" />
-      <entry key="M30" value="92.08421996355877" />
-      <entry key="H1" value="177.76651532600383" />
-      <entry key="H2" value="350.8004011261576" />
-      <entry key="H4" value="582.0176849914773" />
-      <entry key="D1" value="986.2894191960322" />
-      <entry key="W1" value="1090.319200197313" />
+      <entry key="MS100" value="1.000000000011902" />
+      <entry key="MS500" value="1.0066043303355992" />
+      <entry key="S2" value="1.4494964032731994" />
+      <entry key="S5" value="2.8560893373888883" />
+      <entry key="S10" value="5.180056583139167" />
+      <entry key="S30" value="11.316195545612974" />
+      <entry key="S60" value="15.062524468540778" />
+      <entry key="M2" value="17.678932517684967" />
+      <entry key="M5" value="19.583866897724423" />
+      <entry key="M10" value="21.06175608673659" />
+      <entry key="M15" value="24.260207749305522" />
+      <entry key="M30" value="42.26106785167172" />
+      <entry key="H1" value="89.91056319014501" />
+      <entry key="H2" value="192.48349227588002" />
+      <entry key="H4" value="418.0023220050832" />
+      <entry key="D1" value="1534.0649999975278" />
+      <entry key="W1" value="2094.7623166403678" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="3.2431256932363827E-245" />
-      <entry key="S30" value="7.687357902393762E-82" />
-      <entry key="S60" value="5.514107063160638E-41" />
-      <entry key="M2" value="1.483065015956504E-20" />
-      <entry key="M5" value="2.693931838233149E-8" />
-      <entry key="M10" value="3.586645743238586E-4" />
-      <entry key="M15" value="0.01035971913331139" />
-      <entry key="M30" value="0.4692647432395314" />
-      <entry key="H1" value="4.510277809305392" />
-      <entry key="H2" value="17.05337992268644" />
-      <entry key="H4" value="35.96623540611619" />
-      <entry key="D1" value="70.41286644718737" />
-      <entry key="W1" value="79.38592669194328" />
+      <entry key="S5" value="2.9384412850610214E-286" />
+      <entry key="S10" value="1.7199241726100815E-143" />
+      <entry key="S30" value="3.087908823790823E-48" />
+      <entry key="S60" value="2.725364736975279E-24" />
+      <entry key="M2" value="3.054030035380958E-12" />
+      <entry key="M5" value="5.595213624033123E-5" />
+      <entry key="M10" value="0.015421589525657873" />
+      <entry key="M15" value="0.10704407584293317" />
+      <entry key="M30" value="0.9048274200134027" />
+      <entry key="H1" value="3.321286192615922" />
+      <entry key="H2" value="8.290912024922191" />
+      <entry key="H4" value="19.169594758052906" />
+      <entry key="D1" value="84.23744807512058" />
+      <entry key="W1" value="120.3034013008754" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3499455396449596" />
-      <entry key="MS500" value="3.680796752190606" />
-      <entry key="S2" value="8.447969740251176" />
-      <entry key="S5" value="15.456906509949137" />
-      <entry key="S10" value="22.036579677322344" />
-      <entry key="S30" value="32.12048642780893" />
-      <entry key="S60" value="36.49518954683353" />
-      <entry key="M2" value="39.410445750311155" />
-      <entry key="M5" value="43.205446460465225" />
-      <entry key="M10" value="50.64631084021576" />
-      <entry key="M15" value="59.16491630419208" />
-      <entry key="M30" value="92.55078408509432" />
-      <entry key="H1" value="182.2677120797673" />
-      <entry key="H2" value="367.8368369531256" />
-      <entry key="H4" value="617.9661433761181" />
-      <entry key="D1" value="1056.6965506451693" />
-      <entry key="W1" value="1169.704205774361" />
+      <entry key="MS100" value="0.002613139755443364" />
+      <entry key="MS500" value="0.30557005381617" />
+      <entry key="S2" value="1.071405879779108" />
+      <entry key="S5" value="2.5887356194870756" />
+      <entry key="S10" value="4.992564792111803" />
+      <entry key="S30" value="11.221640764034708" />
+      <entry key="S60" value="15.006383533682946" />
+      <entry key="M2" value="17.647804288547228" />
+      <entry key="M5" value="19.570566857928593" />
+      <entry key="M10" value="21.069463737367826" />
+      <entry key="M15" value="24.35979996007018" />
+      <entry key="M30" value="43.15451302613959" />
+      <entry key="H1" value="93.21406572940903" />
+      <entry key="H2" value="200.75195740812993" />
+      <entry key="H4" value="437.14825906442445" />
+      <entry key="D1" value="1618.2905498217817" />
+      <entry key="W1" value="2215.0634877598663" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -107,47 +245,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#2 on dev&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;junie.plugin.stays.banner.dismissed&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/adamh/Documents/Coding/app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\adamh\\Documents\\Coding\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "dev",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "junie.plugin.stays.banner.dismissed": "true",
+    "last_opened_file_path": "C:/Users/adamh/Documents/Coding/Clarity/assets",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\adamh\\Documents\\Coding\\First app\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\adamh\Documents\Coding\Clarity\assets" />
       <recent name="C:\Users\adamh\Documents\Coding\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adamh\Documents\Coding\Clarity\assets\images" />
+      <recent name="C:\Users\adamh\Documents\Coding\Clarity\assets" />
+      <recent name="C:\Users\adamh\Documents\Coding\Clarity\Clarity" />
+      <recent name="C:\Users\adamh\Documents\Coding\Clarity\Clarity\.vscode" />
       <recent name="C:\Users\adamh\Documents\Coding\assets" />
-      <recent name="C:\Users\adamh\Documents\Coding\app-example" />
-      <recent name="C:\Users\adamh\Documents\Coding" />
-      <recent name="C:\Users\adamh\Documents\Coding\app" />
-      <recent name="C:\Users\adamh\Documents\Coding\app\(tabs)" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -182,7 +321,27 @@
       <workItem from="1790130218212" duration="9256000" />
       <workItem from="1790201899954" duration="3009000" />
       <workItem from="1790218406203" duration="1023000" />
-      <workItem from="1790227484107" duration="1872000" />
+      <workItem from="1790227484107" duration="2680000" />
+      <workItem from="1790304647788" duration="8197000" />
+      <workItem from="1790320445873" duration="2486000" />
+      <workItem from="1790386398068" duration="1207000" />
+      <workItem from="1790388636536" duration="6914000" />
+      <workItem from="1790397660745" duration="358000" />
+      <workItem from="1790489344616" duration="1163000" />
+      <workItem from="1790550047649" duration="737000" />
+      <workItem from="1790550819724" duration="88000" />
+      <workItem from="1790550938735" duration="8293000" />
+      <workItem from="1790568781016" duration="1934000" />
+      <workItem from="1790570724560" duration="12000" />
+      <workItem from="1790570745164" duration="3759000" />
+      <workItem from="1790633537516" duration="2878000" />
+      <workItem from="1790638132857" duration="2728000" />
+      <workItem from="1790648516142" duration="3523000" />
+      <workItem from="1790664274472" duration="293000" />
+      <workItem from="1790664594044" duration="794000" />
+      <workItem from="1790721443836" duration="5290000" />
+      <workItem from="1790728688002" duration="1847000" />
+      <workItem from="1790737992859" duration="3938000" />
     </task>
     <task id="LOCAL-00001" summary="all code commited">
       <option name="closed" value="true" />
@@ -209,5 +368,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="all code commited" />
     <option name="LAST_COMMIT_MESSAGE" value="all code commited" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Clarity/constants/theme.ts</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
